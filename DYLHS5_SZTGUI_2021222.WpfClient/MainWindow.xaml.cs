@@ -39,5 +39,10 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
         {
             new ProductWindow().Show();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
