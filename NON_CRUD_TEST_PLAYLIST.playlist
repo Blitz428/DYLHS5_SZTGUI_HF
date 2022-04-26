@@ -1,0 +1,54 @@
+<Playlist Version="2.0">
+  <Rule Name="Includes" Match="Any">
+    <Rule Match="All">
+      <Property Name="Solution" />
+      <Rule Match="Any">
+        <Rule Match="All">
+          <Property Name="Project" Value="DYLHS5_HFT_2021221.Test" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="DYLHS5_HFT_2021221.Test" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="ShopLogicTests" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="DYLHS5_HFT_2021221.Test.ShopLogicTests.GetAddressesOfOrdersTest" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="GetAddressesOfOrdersTest" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="DYLHS5_HFT_2021221.Test.ShopLogicTests.GetCustomersWithThisSizeTest" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="GetCustomersWithThisSizeTest" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="DYLHS5_HFT_2021221.Test.ShopLogicTests.GetOrdersByCustomerNameTest" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="GetOrdersByCustomerNameTest" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="DYLHS5_HFT_2021221.Test.ShopLogicTests.GetPrePaidOrdersByCustomers" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="GetPrePaidOrdersByCustomers" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="DYLHS5_HFT_2021221.Test.ShopLogicTests.GetProductsWeNeedToTransportTest" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="GetProductsWeNeedToTransportTest" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+      </Rule>
+    </Rule>
+  </Rule>
+</Playlist>
