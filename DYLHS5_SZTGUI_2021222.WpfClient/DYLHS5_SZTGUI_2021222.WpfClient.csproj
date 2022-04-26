@@ -11,4 +11,8 @@
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DYLHS5_HFT_2021221.Models\DYLHS5_HFT_2021221.Models.csproj" />
+  </ItemGroup>
+
 </Project>

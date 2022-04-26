@@ -24,5 +24,20 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            new CustomerWindow().Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            new OrderWindow().Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            new ProductWindow().Show();
+        }
     }
 }
