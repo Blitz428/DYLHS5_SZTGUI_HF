@@ -13,6 +13,31 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
         public RestCollection<Customer> Customers { get; set; }
         public RestCollection<Product> Products { get; set; }
 
+        private int? customerIndex;
+
+        public int? CustomerIndex
+        {
+            get { return customerIndex; }
+            set 
+            { 
+                customerIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int? productIndex;
+
+        public int? ProductIndex
+        {
+            get { return productIndex; }
+            set
+            {
+                productIndex = value;
+                OnPropertyChanged();
+            }
+        }
+
+
 
         private Order selectedOrder;
         public Order SelectedOrder
@@ -28,27 +53,22 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
                         OrderTime = value.OrderTime,
                         IsPrePaid = value.IsPrePaid,
                         IsTransportRequired = value.IsTransportRequired,
+                        Product = value.Product,
+                        Customer = value.Customer,
                         ProductId = value.ProductId,
                         CustomerId = value.CustomerId
                     };
-                    foreach (Customer customer in Customers)
+                    if (selectedOrder!=null)
                     {
-                        if (customer.CustomerId ==selectedOrder.CustomerId)
-                        {
-                            SelectedOrder.Customer = customer;
-                        }
+                        CustomerIndex = selectedOrder.CustomerId - 1;
+                        ProductIndex = selectedOrder.ProductId - 1;
                     }
-                    foreach (Product product in Products)
-                    {
-                        if (product.ProductId == selectedOrder.ProductId)
-                        {
-                            SelectedOrder.Product = product;
-                        }
-                    }
+                    
                     OnPropertyChanged();
                     (DeleteOrderCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateOrderCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
-                
+
 
             }
         }
@@ -71,7 +91,14 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
 
                 CreateOrderCommand = new RelayCommand(() =>
                 {
-                    Orders.Add(new Order() { IsPrePaid = SelectedOrder.IsPrePaid, IsTransportRequired = SelectedOrder.IsTransportRequired, OrderTime = SelectedOrder.OrderTime, Product=SelectedOrder.Product, Customer=SelectedOrder.Customer });
+                    Orders.Add(new Order()
+                    {
+                        IsPrePaid = SelectedOrder.IsPrePaid,
+                        IsTransportRequired = SelectedOrder.IsTransportRequired,
+                        OrderTime = SelectedOrder.OrderTime,
+                        Customer = SelectedOrder.Customer,
+                        Product = SelectedOrder.Product
+                    });
                 });
                 DeleteOrderCommand = new RelayCommand(() =>
                 {

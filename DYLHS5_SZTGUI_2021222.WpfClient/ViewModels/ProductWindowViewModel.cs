@@ -32,6 +32,7 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
                     };
                     OnPropertyChanged();
                     (DeleteProductCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateProductCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
         }
