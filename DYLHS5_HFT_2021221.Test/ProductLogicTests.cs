@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using DYLHS5_HFT_2021221.Logic;
+﻿using DYLHS5_HFT_2021221.Logic;
 using DYLHS5_HFT_2021221.Models;
 using DYLHS5_HFT_2021221.Repository;
 using Moq;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DYLHS5_HFT_2021221.Test
 {

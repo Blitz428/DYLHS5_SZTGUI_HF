@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DYLHS5_HFT_2021221.Repository
 {
-    public class CustomerRepository :  ICustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
         XYZDbContext ctx;
         public CustomerRepository(XYZDbContext ctx)
@@ -22,7 +22,16 @@ namespace DYLHS5_HFT_2021221.Repository
         }
 
         public void Delete(int? customerId) //D
-        {ctx.Customers.Remove(ReadOne(customerId));
+        {
+            foreach (Order item in ctx.Orders)
+            {
+                if (item.CustomerId == customerId)
+                {
+                    ctx.Orders.Remove(item);
+                }
+            }
+
+            ctx.Customers.Remove(ReadOne(customerId));
             ctx.SaveChanges();
         }
 
@@ -40,9 +49,9 @@ namespace DYLHS5_HFT_2021221.Repository
         {
             Customer old = ReadOne(customer.CustomerId);
 
-            old.CustomerName=customer.CustomerName;
-            old.Address=customer.Address;
-            old.PhoneNumber=customer.PhoneNumber;
+            old.CustomerName = customer.CustomerName;
+            old.Address = customer.Address;
+            old.PhoneNumber = customer.PhoneNumber;
 
             ctx.SaveChanges();
         }

@@ -40,6 +40,10 @@ namespace DYLHS5_HFT_2021221.Repository
 
             old.IsPrePaid = order.IsPrePaid;
             old.IsTransportRequired = order.IsTransportRequired;
+            old.Product = order.Product;
+            old.Customer = order.Customer;
+            old.CustomerId = order.CustomerId;
+            old.ProductId = order.ProductId;
 
 
             ctx.SaveChanges();

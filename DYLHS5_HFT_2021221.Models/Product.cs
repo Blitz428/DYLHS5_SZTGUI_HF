@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace DYLHS5_HFT_2021221.Models
 {
@@ -34,6 +30,10 @@ namespace DYLHS5_HFT_2021221.Models
         public Product()
         {
             Orders = new List<Order>();
+        }
+        public override string ToString()
+        {
+            return this.ProductName + " - " + this.Color + " - " + this.Size + " - " + this.Price;
         }
     }
 }

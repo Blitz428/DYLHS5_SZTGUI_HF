@@ -42,7 +42,7 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
 
             if (!IsInDesignMode)
             {
-                Customers = new RestCollection<Customer>("http://localhost:27588/", "customer");
+                Customers = new RestCollection<Customer>("http://localhost:27588/", "customer", "hub");
                 CreateCustomerCommand = new RelayCommand(() =>
                 {
                     Customers.Add(new Customer() { CustomerName = SelectedCustomer.CustomerName, Address = SelectedCustomer.Address, PhoneNumber = SelectedCustomer.PhoneNumber });

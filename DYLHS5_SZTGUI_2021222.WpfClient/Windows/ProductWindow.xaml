@@ -14,14 +14,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0"  ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding ProductName}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-
-        </ListBox>
+        <ListBox Grid.Column="0"  ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}"/>
         <StackPanel Grid.Column="1">
             <Grid Margin="5">
                 <Grid.ColumnDefinitions>

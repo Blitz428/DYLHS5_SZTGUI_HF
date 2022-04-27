@@ -1,11 +1,12 @@
+using DYLHS5_HFT_2021221.Data;
+using DYLHS5_HFT_2021221.Endpoint.Services;
+using DYLHS5_HFT_2021221.Logic;
+using DYLHS5_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using DYLHS5_HFT_2021221.Logic;
-using DYLHS5_HFT_2021221.Data;
-using DYLHS5_HFT_2021221.Repository;
 
 namespace DYLHS5_HFT_2021221.Endpoint
 {
@@ -39,6 +40,9 @@ namespace DYLHS5_HFT_2021221.Endpoint
 
             services.AddScoped<XYZDbContext, XYZDbContext>();
 
+            services.AddSignalR();
+
+
             services.AddControllers();
         }
 
@@ -64,6 +68,7 @@ namespace DYLHS5_HFT_2021221.Endpoint
             {
                 //endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }

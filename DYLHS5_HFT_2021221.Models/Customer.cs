@@ -20,13 +20,17 @@ namespace DYLHS5_HFT_2021221.Models
 
         public string Address { get; set; }
 
-
         [NotMapped]
         [JsonIgnore]
         public virtual ICollection<Order> Orders { get; set; }
         public Customer()
         {
             Orders = new List<Order>();
+        }
+
+        public override string ToString()
+        {
+            return this.CustomerName;
         }
     }
 }

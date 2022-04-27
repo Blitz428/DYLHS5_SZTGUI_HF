@@ -15,14 +15,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0"  ItemsSource="{Binding Orders}" SelectedItem="{Binding SelectedOrder}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding OrderTime}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-
-        </ListBox>
+        <ListBox Grid.Column="0"  ItemsSource="{Binding Orders}" SelectedItem="{Binding SelectedOrder}"/>
         <StackPanel Grid.Column="1">
             <Grid Margin="5">
                 <Grid.ColumnDefinitions>
@@ -37,15 +30,13 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Customer:" Background="LightGreen" Padding="10"></Label>
-                <Label x:Name="customer" Grid.Row="0" Grid.Column="1" Content="{Binding SelectedOrder.Customer.CustomerName}" Padding="10"/>
+                <Label x:Name="customer" Grid.Row="0" Grid.Column="1" Content="{Binding SelectedOrder.Customer}"  Padding="10"/>
                 <Label Grid.Row="1" Grid.Column="0" Content="Product:" Background="LightGreen" Padding="10"></Label>
-                <Label x:Name="product" Grid.Row="1" Grid.Column="1" Content="{Binding SelectedOrder.Product.ProductName}" Padding="10"/>
-                <Label Grid.Row="2" Grid.Column="0" Content="Order Time:" Background="LightGreen" Padding="10"></Label>
-                <Label x:Name="name" Grid.Row="2" Grid.Column="1" Content="{Binding SelectedOrder.OrderTime}" Padding="10"/>
-                <Label Grid.Row="3" Grid.Column="0" Content="Is pre-paid?" Background="LightGreen" Padding="10"></Label>
-                <CheckBox x:Name="address" Grid.Row="3" Grid.Column="1" IsChecked="{Binding SelectedOrder.IsPrePaid}" Padding="10" VerticalAlignment="Center"/>
-                <Label Grid.Row="4" Grid.Column="0" Content="Is transport required?" Background="LightGreen" Padding="10"></Label>
-                <CheckBox x:Name="phone" Grid.Row="4" Grid.Column="1" IsChecked="{Binding SelectedOrder.IsTransportRequired}" Padding="10" VerticalAlignment="Center"/>
+                <Label x:Name="product" Grid.Row="1" Grid.Column="1" Content="{Binding SelectedOrder.Product}" Padding="10"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="Is pre-paid?" Background="LightGreen" Padding="10"></Label>
+                <CheckBox x:Name="isprepaid" Grid.Row="2" Grid.Column="1" IsChecked="{Binding SelectedOrder.IsPrePaid}" Padding="10" VerticalAlignment="Center"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="Is transport required?" Background="LightGreen" Padding="10"></Label>
+                <CheckBox x:Name="istransportreq" Grid.Row="3" Grid.Column="1" IsChecked="{Binding SelectedOrder.IsTransportRequired}" Padding="10" VerticalAlignment="Center"/>
 
             </Grid>
             <Button Content="Create new" Command="{Binding CreateOrderCommand}" Margin="10" Padding="10"/>

@@ -28,9 +28,7 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
                         Orders = value.Orders,
                         Price = value.Price,
                         ProductName = value.ProductName,
-                        Size = value.Size
-
-
+                        Size = value.Size,
                     };
                     OnPropertyChanged();
                     (DeleteProductCommand as RelayCommand).NotifyCanExecuteChanged();
@@ -48,10 +46,10 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
         {
             if (!IsInDesignMode)
             {
-                Products = new RestCollection<Product>("http://localhost:27588/", "Product");
+                Products = new RestCollection<Product>("http://localhost:27588/", "product", "hub");
                 CreateProductCommand = new RelayCommand(() =>
                 {
-                    Products.Add(new Product() { Size = SelectedProduct.Size, ProductName = SelectedProduct.ProductName, Price = SelectedProduct.Price, Color = SelectedProduct.Color, Orders = SelectedProduct.Orders, ProductId = SelectedProduct.ProductId });
+                    Products.Add(new Product() { Size = SelectedProduct.Size, ProductName = SelectedProduct.ProductName, Price = SelectedProduct.Price, Color = SelectedProduct.Color, Orders = SelectedProduct.Orders });
                 });
                 DeleteProductCommand = new RelayCommand(() =>
                 {

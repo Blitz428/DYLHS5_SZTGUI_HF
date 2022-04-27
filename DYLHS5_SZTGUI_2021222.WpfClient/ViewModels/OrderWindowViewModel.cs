@@ -10,9 +10,11 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
     class OrderWindowViewModel : ObservableRecipient
     {
         public RestCollection<Order> Orders { get; set; }
+        public RestCollection<Customer> Customers { get; set; }
+        public RestCollection<Product> Products { get; set; }
+
 
         private Order selectedOrder;
-
         public Order SelectedOrder
         {
             get { return selectedOrder; }
@@ -24,19 +26,34 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
                     {
                         OrderId = value.OrderId,
                         OrderTime = value.OrderTime,
-                        Customer = value.Customer,
-                        CustomerId = value.CustomerId,
                         IsPrePaid = value.IsPrePaid,
                         IsTransportRequired = value.IsTransportRequired,
                         ProductId = value.ProductId,
-                        Product = value.Product
-
+                        CustomerId = value.CustomerId
                     };
+                    foreach (Customer customer in Customers)
+                    {
+                        if (customer.CustomerId ==selectedOrder.CustomerId)
+                        {
+                            SelectedOrder.Customer = customer;
+                        }
+                    }
+                    foreach (Product product in Products)
+                    {
+                        if (product.ProductId == selectedOrder.ProductId)
+                        {
+                            SelectedOrder.Product = product;
+                        }
+                    }
                     OnPropertyChanged();
                     (DeleteOrderCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
+                
+
             }
         }
+
+
 
         public ICommand UpdateOrderCommand { get; set; }
         public ICommand CreateOrderCommand { get; set; }
@@ -48,12 +65,13 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
         {
             if (!IsInDesignMode)
             {
-                Orders = new RestCollection<Order>("http://localhost:27588/", "order");
-
+                Orders = new RestCollection<Order>("http://localhost:27588/", "order", "hub");
+                Customers = new RestCollection<Customer>("http://localhost:27588/", "customer", "hub");
+                Products = new RestCollection<Product>("http://localhost:27588/", "product", "hub");
 
                 CreateOrderCommand = new RelayCommand(() =>
                 {
-                    Orders.Add(new Order() { OrderId = SelectedOrder.OrderId, Customer = SelectedOrder.Customer, Product = SelectedOrder.Product, ProductId = SelectedOrder.ProductId, CustomerId = SelectedOrder.CustomerId, IsPrePaid = SelectedOrder.IsPrePaid, IsTransportRequired = SelectedOrder.IsTransportRequired, OrderTime = SelectedOrder.OrderTime });
+                    Orders.Add(new Order() { IsPrePaid = SelectedOrder.IsPrePaid, IsTransportRequired = SelectedOrder.IsTransportRequired, OrderTime = SelectedOrder.OrderTime, Product=SelectedOrder.Product, Customer=SelectedOrder.Customer });
                 });
                 DeleteOrderCommand = new RelayCommand(() =>
                 {

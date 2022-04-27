@@ -2,7 +2,7 @@
 
 namespace DYLHS5_HFT_2021221.Repository
 {
-    public class ShopRepository :IShopRepository
+    public class ShopRepository : IShopRepository
     {
         XYZDbContext ctx;
         public ShopRepository(XYZDbContext ctx)
