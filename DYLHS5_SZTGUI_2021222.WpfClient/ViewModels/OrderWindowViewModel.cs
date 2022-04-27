@@ -10,8 +10,6 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
     class OrderWindowViewModel : ObservableRecipient
     {
         public RestCollection<Order> Orders { get; set; }
-        public RestCollection<Customer> Customers { get; set; }
-        public RestCollection<Product> Products { get; set; }
 
         private Order selectedOrder;
 
@@ -51,8 +49,7 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
             if (!IsInDesignMode)
             {
                 Orders = new RestCollection<Order>("http://localhost:27588/", "order");
-                Products = new RestCollection<Product>("http://localhost:27588/", "product");
-                Customers = new RestCollection<Customer>("http://localhost:27588/", "customer");
+
 
                 CreateOrderCommand = new RelayCommand(() =>
                 {
