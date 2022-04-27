@@ -1,12 +1,7 @@
 ﻿using DYLHS5_HFT_2021221.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -21,29 +16,30 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
         public Customer SelectedCustomer
         {
             get { return selectedCustomer; }
-            set {
-                if (value!=null)
+            set
+            {
+                if (value != null)
                 {
                     selectedCustomer = new Customer()
                     {
                         CustomerId = value.CustomerId,
                         CustomerName = value.CustomerName,
-                        Address=value.Address,
-                        PhoneNumber=value.PhoneNumber
+                        Address = value.Address,
+                        PhoneNumber = value.PhoneNumber
                     };
                     OnPropertyChanged();
                     (DeleteCustomerCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
         }
-        
+
 
         public ICommand UpdateCustomerCommand { get; set; }
         public ICommand CreateCustomerCommand { get; set; }
         public ICommand DeleteCustomerCommand { get; set; }
         public CustomerWindowViewModel()
         {
-            
+
             if (!IsInDesignMode)
             {
                 Customers = new RestCollection<Customer>("http://localhost:27588/", "customer");

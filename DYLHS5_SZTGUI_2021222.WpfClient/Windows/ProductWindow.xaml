@@ -14,7 +14,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Products}">
+        <ListBox Grid.Column="0"  ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding ProductName}"/>
@@ -22,5 +22,35 @@
             </ListBox.ItemTemplate>
 
         </ListBox>
+        <StackPanel Grid.Column="1">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Name:" Background="LightGreen" Padding="10"></Label>
+                <TextBox x:Name="name" Grid.Row="0" Grid.Column="1" Text="{Binding SelectedProduct.ProductName}" Padding="10"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Color:" Background="LightGreen" Padding="10"></Label>
+                <TextBox x:Name="color" Grid.Row="1" Grid.Column="1" Text="{Binding SelectedProduct.Color}" Padding="10"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="Size:" Background="LightGreen" Padding="10"></Label>
+                <TextBox x:Name="size" Grid.Row="2" Grid.Column="1" Text="{Binding SelectedProduct.Size}" Padding="10"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="Price:" Background="LightGreen" Padding="10"></Label>
+                <TextBox x:Name="price" Grid.Row="3" Grid.Column="1" Text="{Binding SelectedProduct.Price}" Padding="10" VerticalAlignment="Center"/>
+
+
+            </Grid>
+            <Button Content="Create new" Command="{Binding CreateProductCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete..." Command="{Binding DeleteProductCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update..." Command="{Binding UpdateProductCommand}" Margin="10" Padding="10"/>
+            <Button Content="Back" Margin="10" Padding="15" Click="Button_Click" />
+
+        </StackPanel>
     </Grid>
 </Window>

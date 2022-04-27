@@ -45,7 +45,7 @@
             
             
             <Button Content="Update..." Command="{Binding UpdateCustomerCommand}" Margin="10" Padding="10"/>
-            
+            <Button Content="Back" Margin="10" Padding="15" Click="Button_Click"  />
 
         </StackPanel>
     </Grid>
