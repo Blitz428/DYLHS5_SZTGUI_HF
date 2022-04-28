@@ -19,7 +19,7 @@ namespace DYLHS5_HFT_2021221.Repository
 
         public void Create(Order order)
         {
-            ctx.Orders.Add(order);           
+            ctx.Orders.Add(order);
             ctx.SaveChanges();
         }
 

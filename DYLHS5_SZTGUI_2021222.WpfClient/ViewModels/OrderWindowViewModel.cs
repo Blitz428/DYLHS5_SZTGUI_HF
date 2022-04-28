@@ -97,7 +97,9 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
                         IsTransportRequired = SelectedOrder.IsTransportRequired,
                         OrderTime = SelectedOrder.OrderTime,
                         Customer = SelectedOrder.Customer,
-                        Product = SelectedOrder.Product
+                        Product = SelectedOrder.Product,
+                        CustomerId=SelectedOrder.CustomerId,
+                        ProductId=SelectedOrder.ProductId
                     });
                 });
                 DeleteOrderCommand = new RelayCommand(() =>

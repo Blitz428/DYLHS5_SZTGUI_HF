@@ -27,7 +27,7 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
+                    
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Customer:" Background="LightGreen" Padding="10"></Label>
                 <ComboBox x:Name="customer" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Customers}" SelectedIndex="{Binding CustomerIndex}" Padding="10"/>

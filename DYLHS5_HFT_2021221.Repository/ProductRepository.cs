@@ -40,8 +40,8 @@ namespace DYLHS5_HFT_2021221.Repository
             old.Size = product.Size;
             old.Color = product.Color;
             old.ProductName = product.ProductName;
-
-
+            old.Orders = product.Orders;
+            
             ctx.SaveChanges();
 
         }

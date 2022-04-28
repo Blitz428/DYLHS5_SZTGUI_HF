@@ -52,7 +52,8 @@ namespace DYLHS5_HFT_2021221.Repository
             old.CustomerName = customer.CustomerName;
             old.Address = customer.Address;
             old.PhoneNumber = customer.PhoneNumber;
-
+            old.Orders = customer.Orders;
+            
             ctx.SaveChanges();
         }
     }

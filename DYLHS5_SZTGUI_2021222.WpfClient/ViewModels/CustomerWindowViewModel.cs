@@ -25,7 +25,9 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
                         CustomerId = value.CustomerId,
                         CustomerName = value.CustomerName,
                         Address = value.Address,
-                        PhoneNumber = value.PhoneNumber
+                        PhoneNumber = value.PhoneNumber,
+                        Orders = value.Orders
+                        
                     };
                     OnPropertyChanged();
                     (DeleteCustomerCommand as RelayCommand).NotifyCanExecuteChanged();
@@ -46,7 +48,7 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
                 Customers = new RestCollection<Customer>("http://localhost:27588/", "customer", "hub");
                 CreateCustomerCommand = new RelayCommand(() =>
                 {
-                    Customers.Add(new Customer() { CustomerName = SelectedCustomer.CustomerName, Address = SelectedCustomer.Address, PhoneNumber = SelectedCustomer.PhoneNumber });
+                    Customers.Add(new Customer() { CustomerName = SelectedCustomer.CustomerName, Address = SelectedCustomer.Address, PhoneNumber = SelectedCustomer.PhoneNumber, Orders=SelectedCustomer.Orders });
                 });
                 DeleteCustomerCommand = new RelayCommand(() =>
                 {

@@ -27,7 +27,7 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Name" Background="LightGreen" Padding="10"></Label>
-                <RibbonComboBox x:Name="name" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Customers}" Padding="10"/>
+                <TextBlock x:Name="name" Grid.Row="0" Grid.Column="1" Text="{Binding Customers}" Padding="10"/>
                 <Label Grid.Row="1" Grid.Column="0" Content="Address" Background="LightGreen" Padding="10"></Label>
                 <TextBox x:Name="address" Grid.Row="1" Grid.Column="1" Text="{Binding SelectedCustomer.Address}" Padding="10"/>
                 <Label Grid.Row="2" Grid.Column="0" Content="Number" Background="LightGreen" Padding="10"></Label>
