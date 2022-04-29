@@ -1,0 +1,32 @@
+﻿table{
+    width:70%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table{
+    border-collapse : collapse;
+}
+
+th,td{
+    padding: 5px;
+   
+}
+th{
+    background-color:lightgreen
+}
+
+#formdiv{
+    display: flex;
+    flex-direction:column;
+    margin-bottom: 10px;
+}
+#formdiv label, button, input{
+    margin: 5px;
+    padding: 5px;
+}
+#formdiv label{
+    font-weight: bolder;
+}

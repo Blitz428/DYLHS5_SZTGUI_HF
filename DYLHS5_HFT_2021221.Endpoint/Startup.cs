@@ -60,6 +60,13 @@ namespace DYLHS5_HFT_2021221.Endpoint
 
             //app.UseStaticFiles();
 
+            app.UseCors(x => x
+                .AllowCredentials()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:30658")
+            );
+
             app.UseRouting();
 
             //app.UseAuthorization();

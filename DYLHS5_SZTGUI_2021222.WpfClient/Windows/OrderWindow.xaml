@@ -30,15 +30,16 @@
                     
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Customer:" Background="LightGreen" Padding="10"></Label>
-                <ComboBox x:Name="customer" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Customers}" SelectedIndex="{Binding CustomerIndex}" Padding="10"/>
+                <TextBox x:Name="customer" Grid.Row="0" Grid.Column="1" Text="{Binding SelectedOrder.Customer }" Padding="10"/>
                 <Label Grid.Row="1" Grid.Column="0" Content="Product:" Background="LightGreen" Padding="10"></Label>
-                <ComboBox x:Name="product" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Products}" SelectedIndex="{Binding ProductIndex}" Padding="10"/>
+                <TextBox x:Name="product" Grid.Row="1" Grid.Column="1" Text="{Binding SelectedOrder.Product}" Padding="10"/>
                 <Label Grid.Row="2" Grid.Column="0" Content="Is pre-paid?" Background="LightGreen" Padding="10"></Label>
                 <CheckBox x:Name="isprepaid" Grid.Row="2" Grid.Column="1" IsChecked="{Binding SelectedOrder.IsPrePaid}" Padding="10" VerticalAlignment="Center"/>
                 <Label Grid.Row="3" Grid.Column="0" Content="Is transport required?" Background="LightGreen" Padding="10"></Label>
                 <CheckBox x:Name="istransportreq" Grid.Row="3" Grid.Column="1" IsChecked="{Binding SelectedOrder.IsTransportRequired}" Padding="10" VerticalAlignment="Center"/>
 
             </Grid>
+            
             <Button Content="Create new" Command="{Binding CreateOrderCommand}" Margin="10" Padding="10"/>
             <Button Content="Delete..." Command="{Binding DeleteOrderCommand}" Margin="10" Padding="10"/>
             <Button Content="Update..." Command="{Binding UpdateOrderCommand}" Margin="10" Padding="10"/>

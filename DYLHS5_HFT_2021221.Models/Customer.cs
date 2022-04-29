@@ -30,7 +30,7 @@ namespace DYLHS5_HFT_2021221.Models
 
         public override string ToString()
         {
-            return this.CustomerName;
+            return "Customer id: " + this.CustomerId + " - Name: " + this.CustomerName;
         }
     }
 }

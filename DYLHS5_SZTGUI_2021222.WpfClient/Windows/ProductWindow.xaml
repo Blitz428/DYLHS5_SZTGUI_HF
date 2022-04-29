@@ -39,6 +39,7 @@
 
 
             </Grid>
+            
             <Button Content="Create new" Command="{Binding CreateProductCommand}" Margin="10" Padding="10"/>
             <Button Content="Delete..." Command="{Binding DeleteProductCommand}" Margin="10" Padding="10"/>
             <Button Content="Update..." Command="{Binding UpdateProductCommand}" Margin="10" Padding="10"/>

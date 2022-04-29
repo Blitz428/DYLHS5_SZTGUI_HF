@@ -25,6 +25,7 @@ namespace DYLHS5_HFT_2021221.Models
         private DateTime _ordertime;
         public virtual DateTime OrderTime { get { return _ordertime; } set { _ordertime = DateTime.Now; } }
 
+
         [NotMapped]
         public virtual Product Product { get; set; }
         [NotMapped]
@@ -33,9 +34,10 @@ namespace DYLHS5_HFT_2021221.Models
         public override string ToString()
         {
 
-            return "Order no: " + this.OrderId;
+            return "Order no: " + this.OrderId + "Order time: " + this.OrderTime;
         }
 
+      
 
     }
 }

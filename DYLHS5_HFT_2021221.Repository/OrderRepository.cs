@@ -37,14 +37,15 @@ namespace DYLHS5_HFT_2021221.Repository
         {
             Order old = ReadOne(order.OrderId);
 
-
+            old.OrderId = order.OrderId;
             old.IsPrePaid = order.IsPrePaid;
             old.IsTransportRequired = order.IsTransportRequired;
             old.Product = order.Product;
             old.Customer = order.Customer;
             old.CustomerId = order.CustomerId;
             old.ProductId = order.ProductId;
-
+            old.OrderTime = order.OrderTime;
+            
 
             ctx.SaveChanges();
 

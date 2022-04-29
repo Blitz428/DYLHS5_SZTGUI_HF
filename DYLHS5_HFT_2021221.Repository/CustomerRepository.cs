@@ -23,14 +23,6 @@ namespace DYLHS5_HFT_2021221.Repository
 
         public void Delete(int? customerId) //D
         {
-            foreach (Order item in ctx.Orders)
-            {
-                if (item.CustomerId == customerId)
-                {
-                    ctx.Orders.Remove(item);
-                }
-            }
-
             ctx.Customers.Remove(ReadOne(customerId));
             ctx.SaveChanges();
         }
@@ -49,6 +41,7 @@ namespace DYLHS5_HFT_2021221.Repository
         {
             Customer old = ReadOne(customer.CustomerId);
 
+            old.CustomerId = customer.CustomerId;
             old.CustomerName = customer.CustomerName;
             old.Address = customer.Address;
             old.PhoneNumber = customer.PhoneNumber;

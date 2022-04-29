@@ -28,10 +28,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{375A9C
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DYLHS5_SZTGUI_2021222.WpfClient", "DYLHS5_SZTGUI_2021222.WpfClient\DYLHS5_SZTGUI_2021222.WpfClient.csproj", "{3E767091-D9DA-4E56-AE59-23682EE7F335}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DYLHS5_SZTGUI_2021222.WpfClient", "DYLHS5_SZTGUI_2021222.WpfClient\DYLHS5_SZTGUI_2021222.WpfClient.csproj", "{3E767091-D9DA-4E56-AE59-23682EE7F335}"
 	ProjectSection(ProjectDependencies) = postProject
 		{58F5A601-CCA4-4B12-9F67-3E9D46F27CC9} = {58F5A601-CCA4-4B12-9F67-3E9D46F27CC9}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DYLHS5_SZTGUI_2021222.JSClient", "DYLHS5_SZTGUI_2021222.JSClient\DYLHS5_SZTGUI_2021222.JSClient.csproj", "{79CD3FBC-BC5A-4691-88FB-12A7F38CB379}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{3E767091-D9DA-4E56-AE59-23682EE7F335}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E767091-D9DA-4E56-AE59-23682EE7F335}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E767091-D9DA-4E56-AE59-23682EE7F335}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79CD3FBC-BC5A-4691-88FB-12A7F38CB379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79CD3FBC-BC5A-4691-88FB-12A7F38CB379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79CD3FBC-BC5A-4691-88FB-12A7F38CB379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79CD3FBC-BC5A-4691-88FB-12A7F38CB379}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

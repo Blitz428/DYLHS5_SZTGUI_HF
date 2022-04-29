@@ -36,6 +36,7 @@ namespace DYLHS5_HFT_2021221.Repository
         {
             Product old = ReadOne(product.ProductId);
 
+            old.ProductId = product.ProductId;
             old.Price = product.Price;
             old.Size = product.Size;
             old.Color = product.Color;
@@ -48,13 +49,6 @@ namespace DYLHS5_HFT_2021221.Repository
 
         public void Delete(int? productId)
         {
-            foreach (Order order in ctx.Orders)
-            {
-                if (order.ProductId == productId)
-                {
-                    ctx.Orders.Remove(order);
-                }
-            }
             ctx.Products.Remove(ReadOne(productId));
             ctx.SaveChanges();
         }
