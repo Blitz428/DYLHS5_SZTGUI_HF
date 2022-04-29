@@ -19,6 +19,7 @@ th{
 }
 
 #formdiv{
+
     display: flex;
     flex-direction:column;
     margin-bottom: 10px;
@@ -29,4 +30,18 @@ th{
 }
 #formdiv label{
     font-weight: bolder;
+}
+#updateformdiv {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#updateformdiv label, button, input {
+        margin: 5px;
+        padding: 5px;
+}
+
+#updateformdiv label {
+        font-weight: bolder;
 }

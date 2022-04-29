@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Product Catalog</h1>
+
     <div id="formdiv">
         <label>Product name:</label>
         <input type="text" id="productName" />
@@ -18,6 +19,19 @@
         <input type="number" id="price" />
 
         <button type="button" onclick="create()">Add product</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Product name:</label>
+        <input type="text" id="productNameToUpdate" />
+        <label>Color:</label>
+        <input type="text" id="colorToUpdate" />
+        <label>Size:</label>
+        <input type="number" id="sizeToUpdate" />
+        <label>Price:</label>
+        <input type="number" id="priceToUpdate" />
+
+        <button type="button" onclick="update()">Update product</button>
     </div>
 
     <table>
@@ -41,7 +55,7 @@
 
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
