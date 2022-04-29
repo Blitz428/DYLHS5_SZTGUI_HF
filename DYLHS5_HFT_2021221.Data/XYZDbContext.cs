@@ -75,7 +75,7 @@ namespace DYLHS5_HFT_2021221.Data
                 entity.HasMany(product => product.Orders)
                 .WithOne(order => order.Product)
                 .HasForeignKey(product => product.ProductId)
-                .OnDelete(DeleteBehavior.ClientCascade);
+                .OnDelete(DeleteBehavior.Cascade);
 
             });
             modelBuilder.Entity<Customer>(entity =>
@@ -83,7 +83,7 @@ namespace DYLHS5_HFT_2021221.Data
                 entity.HasMany(customer => customer.Orders)
                 .WithOne(order => order.Customer)
                 .HasForeignKey(customer => customer.CustomerId)
-                .OnDelete(DeleteBehavior.ClientCascade);
+                .OnDelete(DeleteBehavior.Cascade);
 
             });
             modelBuilder.Entity<Order>(entity =>
@@ -91,12 +91,12 @@ namespace DYLHS5_HFT_2021221.Data
                 entity.HasOne(order => order.Customer)
                 .WithMany(customer => customer.Orders)
                 .HasForeignKey(customer => customer.CustomerId)
-                .OnDelete(DeleteBehavior.ClientCascade);
+                .OnDelete(DeleteBehavior.Cascade);
 
                 entity.HasOne(order => order.Product)
                 .WithMany(product => product.Orders)
                 .HasForeignKey(order => order.ProductId)
-                .OnDelete(DeleteBehavior.ClientCascade);
+                .OnDelete(DeleteBehavior.Cascade);
 
             });
 

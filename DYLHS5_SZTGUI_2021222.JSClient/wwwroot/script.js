@@ -17,13 +17,15 @@ async function getdata() {
 
 
 function display() {
+    document.getElementById('resultarea').innerHTML = "";
     products.forEach(t => {
         document.getElementById('resultarea').innerHTML +=
         "<tr><td>" + t.productId + "</td><td>"
             + t.productName + "</td><td>"
             + t.color + "</td><td>"
             + t.size + "</td><td>"
-            + t.price + "</td></tr>"
+            + t.price + "</td><td>"
+            + `<button type="button" onclick="remove(${t.productId})">Delete</button>` + "</td></tr>"
     });
 }
 
@@ -32,15 +34,26 @@ function create() {
     let color = document.getElementById('color').value;
     let size = document.getElementById('size').value;
     let price = document.getElementById('price').value;
-    fetch('http://localhost:27588/product', {
+    fetch('http://localhost:27588/product/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
             { productName: name, color: color, size: size, price: price }),
     })
         .then(response => response)
-        .then(data => { console.log('Success:', data); })
-        .catch(error => { console.error('Error', error); });
-    getdata();
+        .then(data => { console.log('Success:', data); getdata();})
+        .catch(error => { console.error('Error:', error); });
+}
+
+function remove(productId){
+    fetch('http://localhost:27588/product/' + productId, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', },
+        body: null
+    })
+        .then(response => response)
+        .then(data => { console.log('Success:', data); getdata(); })
+        .catch(error => { console.error('Error:', error); });
+
 
 }
