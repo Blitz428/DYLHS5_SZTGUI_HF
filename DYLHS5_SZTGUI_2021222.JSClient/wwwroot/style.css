@@ -1,5 +1,5 @@
 ﻿table{
-    width:70%;
+    width: 100%;
 }
 
 table, th, td {
@@ -7,7 +7,7 @@ table, th, td {
 }
 
 table{
-    border-collapse : collapse;
+    border-collapse: collapse;
 }
 
 th,td{
@@ -15,13 +15,13 @@ th,td{
    
 }
 th{
-    background-color:lightgreen
+    background-color: lightgreen
 }
 
 #formdiv{
 
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     margin-bottom: 10px;
 }
 #formdiv label, button, input{
