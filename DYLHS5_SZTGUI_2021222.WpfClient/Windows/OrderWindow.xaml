@@ -30,9 +30,9 @@
                     
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Customer:" Background="LightGreen" Padding="10"></Label>
-                <TextBox x:Name="customer" Grid.Row="0" Grid.Column="1" Text="{Binding SelectedOrder.Customer }" Padding="10"/>
+                <TextBox x:Name="customer" Grid.Row="0" Grid.Column="1" Text="{Binding SelectedOrder.Customer.CustomerName }" Padding="10"/>
                 <Label Grid.Row="1" Grid.Column="0" Content="Product:" Background="LightGreen" Padding="10"></Label>
-                <TextBox x:Name="product" Grid.Row="1" Grid.Column="1" Text="{Binding SelectedOrder.Product}" Padding="10"/>
+                <TextBox x:Name="product" Grid.Row="1" Grid.Column="1" Text="{Binding SelectedOrder.Product.ProductName}" Padding="10"/>
                 <Label Grid.Row="2" Grid.Column="0" Content="Is pre-paid?" Background="LightGreen" Padding="10"></Label>
                 <CheckBox x:Name="isprepaid" Grid.Row="2" Grid.Column="1" IsChecked="{Binding SelectedOrder.IsPrePaid}" Padding="10" VerticalAlignment="Center"/>
                 <Label Grid.Row="3" Grid.Column="0" Content="Is transport required?" Background="LightGreen" Padding="10"></Label>

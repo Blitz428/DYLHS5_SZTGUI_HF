@@ -13,28 +13,20 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
         public RestCollection<Customer> Customers { get; set; }
         public RestCollection<Product> Products { get; set; }
 
-        private int? customerIndex;
+        private string customerName;
 
-        public int? CustomerIndex
+        public string CustomerName
         {
-            get { return customerIndex; }
-            set 
-            { 
-                customerIndex = value;
-                OnPropertyChanged();
-            }
+            get { return customerName; }
+            set { customerName = value; }
         }
 
-        private int? productIndex;
+        private string productName;
 
-        public int? ProductIndex
+        public string ProductName
         {
-            get { return productIndex; }
-            set
-            {
-                productIndex = value;
-                OnPropertyChanged();
-            }
+            get { return productName; }
+            set { productName = value; }
         }
 
 
@@ -47,23 +39,39 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
             {
                 if (value != null)
                 {
-                    selectedOrder = new Order()
+                    if (value.OrderId!= null)
                     {
-                        OrderId = value.OrderId,
-                        OrderTime = value.OrderTime,
-                        IsPrePaid = value.IsPrePaid,
-                        IsTransportRequired = value.IsTransportRequired,
-                        Product = value.Product,
-                        Customer = value.Customer,
-                        ProductId = value.ProductId,
-                        CustomerId = value.CustomerId
-                    };
-                    if (selectedOrder!=null)
-                    {
-                        CustomerIndex = selectedOrder.CustomerId - 1;
-                        ProductIndex = selectedOrder.ProductId - 1;
+                        selectedOrder = new Order()
+                        {
+                            OrderId = value.OrderId,
+                            OrderTime = value.OrderTime,
+                            IsPrePaid = value.IsPrePaid,
+                            IsTransportRequired = value.IsTransportRequired
+
+                        };
+                        CustomerName = value.Customer.CustomerName;
+                        ProductName = value.Product.ProductName;
+                        foreach (Customer item in Customers)
+                        {
+                            if (customerName == item.CustomerName)
+                            {
+                                selectedOrder.CustomerId = item.CustomerId;
+                                selectedOrder.Customer = item;
+                                
+                            }
+                        }
+                        foreach (Product item in Products)
+                        {
+                            if (productName == item.ProductName)
+                            {
+                                selectedOrder.ProductId = item.ProductId;
+                                selectedOrder.Product = item;
+                            }
+                        }
                     }
-                    
+
+
+
                     OnPropertyChanged();
                     (DeleteOrderCommand as RelayCommand).NotifyCanExecuteChanged();
                     (UpdateOrderCommand as RelayCommand).NotifyCanExecuteChanged();
@@ -93,13 +101,12 @@ namespace DYLHS5_SZTGUI_2021222.WpfClient
                 {
                     Orders.Add(new Order()
                     {
+                        OrderId = selectedOrder.OrderId,
                         IsPrePaid = SelectedOrder.IsPrePaid,
                         IsTransportRequired = SelectedOrder.IsTransportRequired,
                         OrderTime = SelectedOrder.OrderTime,
-                        Customer = SelectedOrder.Customer,
-                        Product = SelectedOrder.Product,
-                        CustomerId=SelectedOrder.CustomerId,
-                        ProductId=SelectedOrder.ProductId
+                        CustomerId = SelectedOrder.CustomerId,
+                        ProductId = SelectedOrder.ProductId
                     });
                 });
                 DeleteOrderCommand = new RelayCommand(() =>
